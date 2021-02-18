@@ -1,8 +1,41 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="OrdersManagementProject">
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="SchedulerModuleBase" Version="20.2.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="20.2.4.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
+    <DetailView Id="SalesOrder_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="12.925969447708578">
+            <LayoutGroup Id="SalesOrder" RelativeSize="100" Caption="SalesOrder" Direction="Horizontal">
+              <LayoutGroup Id="Autoe9fb28d2-4644-4d3b-9e8b-fd1d36a81a5e" ShowCaption="False" Caption="" Index="0" RelativeSize="35.842880523731587" IsNewNode="True">
+                <LayoutItem Id="OrderCode" ViewItem="OrderCode" Index="0" RelativeSize="29.09090909090909" IsNewNode="True" />
+                <LayoutItem Id="Customer" ViewItem="Customer" Index="1" RelativeSize="21.818181818181817" IsNewNode="True" />
+                <LayoutItem Id="OrderPrice" ViewItem="OrderPrice" Index="2" RelativeSize="21.818181818181817" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" Index="3" RelativeSize="27.272727272727273" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Autod47c964a-d1c0-4d1a-8efc-c7dc5b76c052" ShowCaption="False" Caption="" Index="1" RelativeSize="64.1571194762684" IsNewNode="True">
+                <LayoutItem Id="Item1" Index="0" RelativeSize="29.09090909090909" IsNewNode="True" />
+                <LayoutItem Id="Item2" Index="1" RelativeSize="21.818181818181817" IsNewNode="True" />
+                <LayoutItem Id="Item3" Index="2" RelativeSize="21.818181818181817" IsNewNode="True" />
+                <LayoutItem Id="Item4" Index="3" RelativeSize="27.272727272727273" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="Customer" Index="1" RelativeSize="21.818181818181817" Removed="True" />
+              <LayoutItem Id="OrderPrice" Index="1" RelativeSize="21.818181818181817" Removed="True" />
+              <LayoutItem Id="Status" Index="1" RelativeSize="27.272727272727273" Removed="True" />
+              <LayoutItem Id="OrderCode" RelativeSize="26.666666666666668" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Products_Group" Direction="Vertical" RelativeSize="87.074030552291418">
+            <LayoutItem Id="Products" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
   </Views>
 </Application>

@@ -68,6 +68,8 @@ namespace Domain.Security
 
         #endregion
 
+        // Functionality
+
         #region FindCurrentEmployee
 
         public static Employee FindCurrentEmployee(Session session, bool throwException = true)
