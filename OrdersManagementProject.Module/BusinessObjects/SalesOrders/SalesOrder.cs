@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
@@ -8,6 +9,7 @@ using DevExpress.Xpo;
 using Domain.Base;
 using Domain.Customers;
 using Domain.Products;
+using Domain.Security;
 
 namespace Domain.SalesOrders
 {
@@ -29,6 +31,9 @@ namespace Domain.SalesOrders
             // Auto-generate order code.
             long timeStamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
             this.OrderCode = $"SO-{DateTime.Now:yyyyMMddHHmmssffff}";
+
+            // Set AssignedTo after object creation to the current user
+            this.AssignedTo = SecuritySystem.CurrentUser as Employee;
         }
 
         #endregion
@@ -87,6 +92,19 @@ namespace Domain.SalesOrders
 
         #endregion
 
+        #region AssignedTo
+
+        private Employee _employee;
+
+        public Employee AssignedTo
+        {
+            get { return _employee; }
+            set { SetPropertyValue<Employee>(nameof(AssignedTo), ref _employee, value); }
+        }
+
+        #endregion
+
+
         #region Products
 
         [Association]
@@ -96,6 +114,8 @@ namespace Domain.SalesOrders
         }
 
         #endregion
+
+        // Functionality
 
         #region Products_ListChanged
 
