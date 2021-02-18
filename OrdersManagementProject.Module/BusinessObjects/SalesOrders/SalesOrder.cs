@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
@@ -19,10 +20,24 @@ namespace Domain.SalesOrders
             this.Products.ListChanged += Products_ListChanged;
         }
 
+        #region AfterConstruction
+
+        public override void AfterConstruction()
+        {
+            base.AfterConstruction();
+
+            // Auto-generate order code.
+            long timeStamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+            this.OrderCode = $"SO-{DateTime.Now:yyyyMMddHHmmssffff}";
+        }
+
+        #endregion
+
         #region OrderCode
 
         private string _orderCode;
 
+        [Indexed]
         [RuleRequiredField]
         [RuleUniqueValue]
         [Size(30)]

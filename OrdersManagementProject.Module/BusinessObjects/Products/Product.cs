@@ -12,6 +12,8 @@ namespace Domain.Products
         {
         }
 
+        #region AfterConstruction
+
         public override void AfterConstruction()
         {
             base.AfterConstruction();
@@ -21,6 +23,8 @@ namespace Domain.Products
             int maxProductCode = pQ.Max(p => p.Code);
             this.Code = maxProductCode + 1;
         }
+
+        #endregion
 
         #region Code
 
