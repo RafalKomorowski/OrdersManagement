@@ -148,7 +148,10 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\Base\CommonBaseObject.cs" />
     <Compile Include="BusinessObjects\Base\LookupBase.cs" />
+    <Compile Include="BusinessObjects\Base\PersonBase.cs" />
     <Compile Include="BusinessObjects\Base\TrackedBaseObject.cs" />
+    <Compile Include="BusinessObjects\Customers\Customer.cs" />
+    <Compile Include="BusinessObjects\Products\Product.cs" />
     <Compile Include="BusinessObjects\SalesOrders\SalesOrder.cs" />
     <Compile Include="BusinessObjects\Security\Employee.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
