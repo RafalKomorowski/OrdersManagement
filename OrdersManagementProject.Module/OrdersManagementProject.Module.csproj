@@ -153,6 +153,9 @@
     <Compile Include="BusinessObjects\Customers\Customer.cs" />
     <Compile Include="BusinessObjects\Products\Product.cs" />
     <Compile Include="BusinessObjects\SalesOrders\SalesOrder.cs" />
+    <Compile Include="BusinessObjects\Security\AuthenticationStandardForDebug.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BusinessObjects\Security\Employee.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">

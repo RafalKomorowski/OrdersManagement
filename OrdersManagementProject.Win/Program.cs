@@ -9,13 +9,16 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.XtraEditors;
 
-namespace OrdersManagementProject.Win {
-    static class Program {
+namespace OrdersManagementProject.Win
+{
+    static class Program
+    {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main() {
+        static void Main()
+        {
             DevExpress.ExpressApp.FrameworkSettings.DefaultSettingsCompatibilityMode = DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.Latest;
 #if EASYTEST
             DevExpress.ExpressApp.Win.EasyTest.EasyTestRemotingRegistration.Register();
@@ -23,15 +26,17 @@ namespace OrdersManagementProject.Win {
             WindowsFormsSettings.LoadApplicationSettings();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-			DevExpress.Utils.ToolTipController.DefaultController.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
+            DevExpress.Utils.ToolTipController.DefaultController.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
             EditModelPermission.AlwaysGranted = System.Diagnostics.Debugger.IsAttached;
-            if(Tracing.GetFileLocationFromSettings() == DevExpress.Persistent.Base.FileLocation.CurrentUserApplicationDataFolder) {
+            if (Tracing.GetFileLocationFromSettings() == DevExpress.Persistent.Base.FileLocation.CurrentUserApplicationDataFolder)
+            {
                 Tracing.LocalUserAppDataPath = Application.LocalUserAppDataPath;
             }
             Tracing.Initialize();
             OrdersManagementProjectWindowsFormsApplication winApplication = new OrdersManagementProjectWindowsFormsApplication();
             winApplication.GetSecurityStrategy().RegisterXPOAdapterProviders();
-            if(ConfigurationManager.ConnectionStrings["ConnectionString"] != null) {
+            if (ConfigurationManager.ConnectionStrings["ConnectionString"] != null)
+            {
                 winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             }
 #if EASYTEST
@@ -40,15 +45,31 @@ namespace OrdersManagementProject.Win {
             }
 #endif
 #if DEBUG
-            if(System.Diagnostics.Debugger.IsAttached && winApplication.CheckCompatibilityType == CheckCompatibilityType.DatabaseSchema) {
+            if (System.Diagnostics.Debugger.IsAttached && winApplication.CheckCompatibilityType == CheckCompatibilityType.DatabaseSchema)
+            {
                 winApplication.DatabaseUpdateMode = DatabaseUpdateMode.UpdateDatabaseAlways;
             }
 #endif
-            try {
+
+#if DEBUG
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                string automaticDebugUser = System.Configuration.ConfigurationManager.AppSettings["AutomaticDebugUser"];
+                if (!string.IsNullOrEmpty(automaticDebugUser))
+                {
+                    SecurityStrategyComplex securityStrategyComplex = winApplication.Security as SecurityStrategyComplex;
+                    if (securityStrategyComplex != null)
+                        securityStrategyComplex.Authentication = new Domain.Security.AuthenticationStandardForDebug();
+                }
+            }
+#endif
+            try
+            {
                 winApplication.Setup();
                 winApplication.Start();
             }
-            catch(Exception e) {
+            catch (Exception e)
+            {
                 winApplication.StopSplash();
                 winApplication.HandleException(e);
             }
