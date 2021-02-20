@@ -36,7 +36,7 @@ namespace Domain.SalesOrders
             this.OrderCode = $"SO-{DateTime.Now:yyyyMMddHHmmssffff}";
 
             // Set AssignedTo after object creation to the current user
-            this.AssignedTo = SecuritySystem.CurrentUser as Employee;
+            this.AssignedTo = Employee.FindCurrentEmployee(this.Session);
         }
 
         #endregion

@@ -19,13 +19,13 @@ namespace Domain.Base
         {
             base.AfterConstruction();
             this.CreatedOn = DateTime.Now;
-            this.CreatedBy = SecuritySystem.CurrentUser as Employee;
+            this.CreatedBy = Employee.FindCurrentEmployee(this.Session);
         }
 
         protected override void OnSaving()
         {
             base.OnSaving();
-            this.ModifiedBy = SecuritySystem.CurrentUser as Employee;
+            this.ModifiedBy = Employee.FindCurrentEmployee(this.Session);
         }
 
         private DateTime _createdOn;

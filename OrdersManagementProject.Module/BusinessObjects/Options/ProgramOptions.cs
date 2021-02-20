@@ -3,6 +3,7 @@ using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using Domain.Security;
 
 namespace Domain.Options
 {
@@ -91,5 +92,18 @@ namespace Domain.Options
         }
 
         #endregion
+
+        #region SalesOrderNotificationAdministrator
+
+        private Employee _salesOrderNotificationAdministrator;
+
+        public Employee SalesOrderNotificationAdministrator
+        {
+            get { return _salesOrderNotificationAdministrator; }
+            set { SetPropertyValue<Employee>(nameof(SalesOrderNotificationAdministrator), ref _salesOrderNotificationAdministrator, value); }
+        }
+
+        #endregion
+
     }
 }

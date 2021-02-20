@@ -29,7 +29,7 @@
             this.module4 = new OrdersManagementProject.Module.Win.OrdersManagementProjectWindowsFormsModule();
             this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
             this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
-            this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
+            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
             this.auditTrailModule = new DevExpress.ExpressApp.AuditTrail.AuditTrailModule();
             this.objectsModule = new DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule();
             this.chartModule = new DevExpress.ExpressApp.Chart.ChartModule();
@@ -45,38 +45,52 @@
             this.schedulerWindowsFormsModule = new DevExpress.ExpressApp.Scheduler.Win.SchedulerWindowsFormsModule();
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationWindowsFormsModule = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
-            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // securityStrategyComplex1
             // 
+            this.securityStrategyComplex1.AllowAnonymousAccess = false;
             this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
+            this.securityStrategyComplex1.PermissionsReloadMode = DevExpress.ExpressApp.Security.PermissionsReloadMode.CacheOnFirstAccess;
             this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);
+            this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
             this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);
-            // 
-            // securityModule1
-            // 
-            this.securityModule1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);
             // 
             // authenticationStandard1
             // 
             this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
-            //
+            // 
             // auditTrailModule
-            //
+            // 
             this.auditTrailModule.AuditDataItemPersistentType = typeof(DevExpress.Persistent.BaseImpl.AuditDataItemPersistent);
-            //
+            // 
             // dashboardsModule
-            //
+            // 
             this.dashboardsModule.DashboardDataType = typeof(DevExpress.Persistent.BaseImpl.DashboardData);
+            // 
+            // dashboardsWindowsFormsModule
+            // 
             this.dashboardsWindowsFormsModule.DesignerFormStyle = DevExpress.XtraBars.Ribbon.RibbonFormStyle.Ribbon;
-            //
+            // 
+            // notificationsModule
+            // 
+            this.notificationsModule.CanAccessPostponedItems = false;
+            this.notificationsModule.NotificationsRefreshInterval = System.TimeSpan.Parse("00:05:00");
+            this.notificationsModule.NotificationsStartDelay = System.TimeSpan.Parse("00:00:05");
+            this.notificationsModule.ShowDismissAllAction = false;
+            this.notificationsModule.ShowNotificationsWindow = true;
+            this.notificationsModule.ShowRefreshAction = false;
+            // 
             // reportsModuleV2
-            //
+            // 
             this.reportsModuleV2.EnableInplaceReports = true;
             this.reportsModuleV2.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.ReportDataV2);
-            this.reportsModuleV2.ShowAdditionalNavigation = false;
             this.reportsModuleV2.ReportStoreMode = DevExpress.ExpressApp.ReportsV2.ReportStoreModes.XML;
+            // 
+            // validationModule
+            // 
+            this.validationModule.AllowValidationDetailsAccess = true;
+            this.validationModule.IgnoreWarningAndInformationRules = false;
             // 
             // OrdersManagementProjectWindowsFormsApplication
             // 
@@ -84,29 +98,27 @@
             this.CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
             this.Modules.Add(this.module1);
             this.Modules.Add(this.module2);
-            this.Modules.Add(this.module3);
-            this.Modules.Add(this.module4);
             this.Modules.Add(this.securityModule1);
-            this.Security = this.securityStrategyComplex1;
             this.Modules.Add(this.auditTrailModule);
             this.Modules.Add(this.objectsModule);
             this.Modules.Add(this.chartModule);
-            this.Modules.Add(this.chartWindowsFormsModule);
             this.Modules.Add(this.conditionalAppearanceModule);
             this.Modules.Add(this.dashboardsModule);
-            this.Modules.Add(this.dashboardsWindowsFormsModule);
             this.Modules.Add(this.notificationsModule);
-            this.Modules.Add(this.notificationsWindowsFormsModule);
             this.Modules.Add(this.reportsModuleV2);
-            this.Modules.Add(this.reportsWindowsFormsModuleV2);
             this.Modules.Add(this.schedulerModuleBase);
-            this.Modules.Add(this.schedulerWindowsFormsModule);
             this.Modules.Add(this.validationModule);
+            this.Modules.Add(this.module3);
+            this.Modules.Add(this.chartWindowsFormsModule);
+            this.Modules.Add(this.dashboardsWindowsFormsModule);
+            this.Modules.Add(this.notificationsWindowsFormsModule);
+            this.Modules.Add(this.reportsWindowsFormsModuleV2);
+            this.Modules.Add(this.schedulerWindowsFormsModule);
             this.Modules.Add(this.validationWindowsFormsModule);
-            this.UseOldTemplates = false;
+            this.Modules.Add(this.module4);
+            this.Security = this.securityStrategyComplex1;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.OrdersManagementProjectWindowsFormsApplication_DatabaseVersionMismatch);
             this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.OrdersManagementProjectWindowsFormsApplication_CustomizeLanguagesList);
-
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
