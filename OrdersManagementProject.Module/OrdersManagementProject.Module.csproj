@@ -86,6 +86,7 @@
     <Reference Include="DevExpress.ExpressApp.Xpo.v20.2">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Images.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Persistent.Base.v20.2">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -128,6 +129,8 @@
     <Reference Include="System.Drawing">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -151,12 +154,25 @@
     <Compile Include="BusinessObjects\Base\PersonBase.cs" />
     <Compile Include="BusinessObjects\Base\TrackedBaseObject.cs" />
     <Compile Include="BusinessObjects\Customers\Customer.cs" />
+    <Compile Include="BusinessObjects\Options\ProgramOptions.cs" />
     <Compile Include="BusinessObjects\Products\Product.cs" />
     <Compile Include="BusinessObjects\SalesOrders\SalesOrder.cs" />
     <Compile Include="BusinessObjects\Security\AuthenticationStandardForDebug.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="BusinessObjects\Security\Employee.cs" />
+    <Compile Include="Controllers\SalesOrders\SalesOrderController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SalesOrders\SalesOrderController.Designer.cs">
+      <DependentUpon>SalesOrderController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SalesOrders\SalesOrderListViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SalesOrders\SalesOrderListViewController.Designer.cs">
+      <DependentUpon>SalesOrderListViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -167,6 +183,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\SalesOrders\SalesOrderController.resx">
+      <DependentUpon>SalesOrderController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SalesOrders\SalesOrderListViewController.resx">
+      <DependentUpon>SalesOrderListViewController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
@@ -13,6 +14,8 @@ using Domain.Security;
 
 namespace Domain.SalesOrders
 {
+    [Appearance("SalesOrder_Invalid_DisableEdit", AppearanceItemType.ViewItem, "Invalid", TargetItems = "*", Enabled = false)]
+    [Appearance("SalesOrder_Invalid_RedBackground", Context = "ListView", Criteria = "Invalid", TargetItems = "*", BackColor = "RED", FontColor = "WHITE")]
     [DefaultProperty(nameof(OrderCode))]
     [NavigationItem("SalesOrders")]
     public class SalesOrder : TrackedBaseObject
@@ -104,6 +107,103 @@ namespace Domain.SalesOrders
 
         #endregion
 
+        #region Invalid
+
+        private bool _invalid;
+
+        [ModelDefault("AllowEdit", "false")] // This property can be edited only using an action.
+        public bool Invalid
+        {
+            get { return _invalid; }
+            set
+            {
+                if (SetPropertyValue<bool>(nameof(Invalid), ref _invalid, value))
+                    if (!IsLoading)
+                        InvalidChanged();
+            }
+        }
+
+        /// <summary>
+        /// Method called on Invalid setter. Allows to automatically edit other properties if needed
+        /// </summary>
+        private void InvalidChanged()
+        {
+            if (_invalidUpdating)
+                return;
+
+            // Set Resolved = false when Sales Order become invalid.
+            SetResolvedInIsolation(false);
+        }
+
+        private bool _invalidUpdating = false;
+
+        /// <summary>
+        /// A mechanism that allows to set Invalid value without executing InvalidChanged method
+        /// </summary>
+        /// <param name="value"></param>
+        private void SetInvalidInIsolation(bool value)
+        {
+            _invalidUpdating = true;
+            try
+            {
+                this.Invalid = value;
+            }
+            finally
+            {
+                _invalidUpdating = false;
+            }
+        }
+
+        #endregion
+
+        #region Resolved
+
+        private bool _resolved;
+
+        [ModelDefault("AllowEdit", "false")] // This property can be edited only using an action.
+        public bool Resolved
+        {
+            get { return _resolved; }
+            set
+            {
+                if (SetPropertyValue<bool>(nameof(Resolved), ref _resolved, value))
+                    if (!IsLoading)
+                        ResolvedChanged();
+            }
+        }
+
+        /// <summary>
+        /// Method called on Resolved setter. Allows to automatically edit other properties if needed
+        /// </summary>
+        private void ResolvedChanged()
+        {
+            if (_resolvedUpdating)
+                return;
+
+            // Set Invalid = false when Sales Order become resolved.
+            SetInvalidInIsolation(false);
+        }
+
+        private bool _resolvedUpdating = false;
+
+        /// <summary>
+        /// A mechanism that allows to set Resolved value without executing ResolvedChanged method
+        /// </summary>
+        /// <param name="value"></param>
+        private void SetResolvedInIsolation(bool value)
+        {
+            _resolvedUpdating = true;
+            try
+            {
+                this.Resolved = value;
+            }
+            finally
+            {
+                _resolvedUpdating = false;
+            }
+        }
+
+        #endregion
 
         #region Products
 
