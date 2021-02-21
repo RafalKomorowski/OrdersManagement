@@ -75,6 +75,7 @@ namespace Domain.SalesOrders
         private decimal _orderPrice;
 
         [ModelDefault("AllowEdit", "false")]
+        [ToolTip("The sum of the prices of products")]
         public decimal OrderPrice
         {
             get { return _orderPrice; }

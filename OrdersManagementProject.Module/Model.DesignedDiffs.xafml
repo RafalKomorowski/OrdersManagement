@@ -11,27 +11,35 @@
     <DetailView Id="SalesOrder_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="12.925969447708578">
-            <LayoutGroup Id="SalesOrder" RelativeSize="100" Caption="SalesOrder" Direction="Horizontal">
-              <LayoutGroup Id="Autoe9fb28d2-4644-4d3b-9e8b-fd1d36a81a5e" ShowCaption="False" Caption="" Index="0" RelativeSize="35.842880523731587" IsNewNode="True">
-                <LayoutItem Id="OrderCode" ViewItem="OrderCode" Index="0" RelativeSize="29.09090909090909" IsNewNode="True" />
-                <LayoutItem Id="Customer" ViewItem="Customer" Index="1" RelativeSize="21.818181818181817" IsNewNode="True" />
-                <LayoutItem Id="OrderPrice" ViewItem="OrderPrice" Index="2" RelativeSize="21.818181818181817" IsNewNode="True" />
-                <LayoutItem Id="Status" ViewItem="Status" Index="3" RelativeSize="27.272727272727273" IsNewNode="True" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="18.44888366627497">
+            <LayoutGroup Id="SalesOrder" RelativeSize="100" Caption="SalesOrder" Direction="Vertical" ShowCaption="False">
+              <TabbedGroup Id="Tabs" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="MainTab" Index="0" Direction="Horizontal" ShowCaption="True" RelativeSize="100" Caption="Home" IsNewNode="True">
+                  <LayoutGroup Id="Autoe9fb28d2-4644-4d3b-9e8b-fd1d36a81a5e" ShowCaption="False" Caption="Autoe9fb28d2-4644-4d3b-9e8b-fd1d36a81a5e(6)" Index="0" RelativeSize="48.19863680623174" IsNewNode="True">
+                    <LayoutItem Id="OrderCode" ViewItem="OrderCode" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+                    <LayoutItem Id="Customer" ViewItem="Customer" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+                    <LayoutItem Id="OrderPrice" ViewItem="OrderPrice" Index="2" RelativeSize="21.428571428571427" IsNewNode="True" />
+                    <LayoutItem Id="Status" ViewItem="Status" Index="3" RelativeSize="28.571428571428573" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="@2a7701a2-aa73-4f78-84a9-1a927b114aec" ShowCaption="False" Direction="Vertical" Index="1" RelativeSize="51.80136319376826" Caption="Status" IsNewNode="True">
+                    <LayoutItem Id="Item1" Index="0" RelativeSize="100" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="AdditionalInformation" Index="1" ShowCaption="True" RelativeSize="100" Caption="Others" IsNewNode="True">
+                  <LayoutItem Id="AssignedTo" ViewItem="AssignedTo" ShowCaption="" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+                  <LayoutItem Id="Invalid" ViewItem="Invalid" ShowCaption="" Index="1" RelativeSize="21.428571428571427" IsNewNode="True" />
+                  <LayoutItem Id="Resolved" ViewItem="Resolved" ShowCaption="" Index="2" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+              </TabbedGroup>
+              <LayoutGroup Id="SalesOrder_col1" Removed="True" />
+              <LayoutGroup Id="SalesOrder_col2" Removed="True">
+                <LayoutItem Id="AssignedTo" Removed="True" />
+                <LayoutItem Id="Invalid" Removed="True" />
+                <LayoutItem Id="Resolved" Removed="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Autod47c964a-d1c0-4d1a-8efc-c7dc5b76c052" ShowCaption="False" Caption="" Index="1" RelativeSize="64.1571194762684" IsNewNode="True">
-                <LayoutItem Id="Item1" Index="0" RelativeSize="29.09090909090909" IsNewNode="True" />
-                <LayoutItem Id="Item2" Index="1" RelativeSize="21.818181818181817" IsNewNode="True" />
-                <LayoutItem Id="Item3" Index="2" RelativeSize="21.818181818181817" IsNewNode="True" />
-                <LayoutItem Id="Item4" Index="3" RelativeSize="27.272727272727273" IsNewNode="True" />
-              </LayoutGroup>
-              <LayoutItem Id="Customer" Index="1" RelativeSize="21.818181818181817" Removed="True" />
-              <LayoutItem Id="OrderPrice" Index="1" RelativeSize="21.818181818181817" Removed="True" />
-              <LayoutItem Id="Status" Index="1" RelativeSize="27.272727272727273" Removed="True" />
-              <LayoutItem Id="OrderCode" RelativeSize="26.666666666666668" Removed="True" />
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="Products_Group" Direction="Vertical" RelativeSize="87.074030552291418">
+          <LayoutGroup Id="Products_Group" Direction="Vertical" RelativeSize="81.551116333725034">
             <LayoutItem Id="Products" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>

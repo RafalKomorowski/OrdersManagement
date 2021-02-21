@@ -231,6 +231,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Tooltips\TooltipViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Tooltips\TooltipViewController.Designer.cs">
+      <DependentUpon>TooltipViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ShowMessageServices\WinShowMessageStrategy.cs" />
     <Compile Include="WinModule.cs">
