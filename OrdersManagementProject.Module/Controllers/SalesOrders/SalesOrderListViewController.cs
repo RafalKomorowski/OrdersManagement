@@ -7,6 +7,7 @@ using Domain.SalesOrders;
 using Domain.Security;
 using Helpers;
 using MimeKit;
+using Services;
 
 namespace OrdersManagementProject.Module.Controllers.SalesOrders
 {
@@ -76,6 +77,7 @@ namespace OrdersManagementProject.Module.Controllers.SalesOrders
                         if (EmailHelper.SendEmail(this.ObjectSpace.Session(), message, out string errorMessage))
                         {
                             //TODO: Show confirmation message
+                            ShowMessageService.Strategy.ShowDialog("The email has been successfully sent.", "Success", CustomMessageBoxButtons.OK, CutomMessageBoxIcon.Information);
                         }
                         else
                             //Show error information. Logging has been done in the SendEmail method.

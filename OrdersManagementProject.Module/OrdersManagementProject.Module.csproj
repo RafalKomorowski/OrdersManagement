@@ -198,6 +198,7 @@
       <DependentUpon>Module.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ShowMessageServices\ShowMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controllers\SalesOrders\SalesOrderController.resx">
