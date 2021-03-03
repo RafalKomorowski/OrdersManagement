@@ -4,6 +4,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using Domain.Security;
+using OrdersManagementProject.Module.AdditionalAttributes;
 
 namespace Domain.Options
 {
@@ -48,6 +49,8 @@ namespace Domain.Options
         private string _senderEmailPassword;
 
         [System.ComponentModel.PasswordPropertyText(true)]
+        // Exclude password form the audit trail - values are visible by default.
+        [ExcludeFromAuditTrail]
         public string SenderEmailPassword
         {
             get { return _senderEmailPassword; }

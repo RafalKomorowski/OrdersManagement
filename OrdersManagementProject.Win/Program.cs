@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Win;
+using DevExpress.Persistent.AuditTrail;
 using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
 using DevExpress.XtraEditors;
+using OrdersManagementProject.Module.Services.AuditTrail;
 
 namespace OrdersManagementProject.Win
 {
@@ -63,6 +62,10 @@ namespace OrdersManagementProject.Win
                 }
             }
 #endif
+
+            // Audit Trail security improvement
+            AuditTrailService.Instance.CustomizeAuditTrailSettings += new CustomizeAuditSettingsEventHandler(Instance_CustomizeAuditTrailSettings);
+
             try
             {
                 winApplication.Setup();
@@ -73,6 +76,16 @@ namespace OrdersManagementProject.Win
                 winApplication.StopSplash();
                 winApplication.HandleException(e);
             }
+        }
+
+        /// <summary>
+        /// Removes properties with the [ExcludeFromAuditTrail] attribute from the audit trail.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void Instance_CustomizeAuditTrailSettings(object sender, CustomizeAuditTrailSettingsEventArgs e)
+        {
+            ExcludeFromAuditTrailService.Exclude(e.AuditTrailSettings);
         }
     }
 }
