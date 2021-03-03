@@ -8,6 +8,53 @@
     <SchemaModule Name="SystemModule" Version="20.2.4.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="Customer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="20.564042303172737" Direction="Horizontal">
+            <LayoutGroup Id="Person" ShowCaption="True" Caption="General" Direction="Horizontal" Index="0" RelativeSize="52.662721893491124" IsNewNode="True" Removed="True">
+              <LayoutGroup Id="Person_col1" ShowCaption="False" Index="0" RelativeSize="47.524752475247524" IsNewNode="True">
+                <LayoutItem Id="FirstName" ViewItem="FirstName" Index="0" RelativeSize="23.529411764705884" IsNewNode="True" />
+                <LayoutItem Id="LastName" ViewItem="LastName" Index="1" RelativeSize="17.647058823529413" IsNewNode="True" />
+                <LayoutItem Id="MiddleName" ViewItem="MiddleName" Index="2" RelativeSize="17.647058823529413" IsNewNode="True" />
+                <LayoutItem Id="FullName" ViewItem="FullName" Index="3" RelativeSize="41.1764705882353" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Person_col2" ShowCaption="False" Index="1" RelativeSize="52.475247524752476" IsNewNode="True">
+                <LayoutItem Id="Birthday" ViewItem="Birthday" Index="0" RelativeSize="23.529411764705884" IsNewNode="True" />
+                <LayoutItem Id="Email" ViewItem="Email" Index="1" RelativeSize="17.647058823529413" IsNewNode="True" />
+                <LayoutItem Id="Photo" ViewItem="Photo" Index="2" RelativeSize="58.8235294117647" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="PersonBase" Index="0" RelativeSize="36.494252873563219" Removed="True">
+              <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Address" IsNewNode="True">
+                <LayoutItem Id="Country" ViewItem="Country" Index="0" RelativeSize="36.363636363636367" IsNewNode="True" />
+                <LayoutItem Id="City" ViewItem="City" Index="1" RelativeSize="27.272727272727273" IsNewNode="True" />
+                <LayoutItem Id="ZipCode" ViewItem="ZipCode" Index="2" RelativeSize="36.363636363636367" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="City" RelativeSize="27.906976744186046" Removed="True" />
+              <LayoutItem Id="Country" RelativeSize="37.2093023255814" Removed="True" />
+              <LayoutItem Id="ZipCode" RelativeSize="34.883720930232556" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item1" ShowCaption="True" Caption="Address" CaptionLocation="Top" Index="1" RelativeSize="47.337278106508876" IsNewNode="True">
+              <LayoutItem Id="Address1" ViewItem="Address1" Index="0" RelativeSize="23.529411764705884" IsNewNode="True" />
+              <LayoutItem Id="Address2" ViewItem="Address2" Index="1" RelativeSize="17.647058823529413" IsNewNode="True" />
+              <LayoutItem Id="Country" ViewItem="Country" Index="2" RelativeSize="17.647058823529413" IsNewNode="True" />
+              <LayoutItem Id="City" ViewItem="City" Index="3" RelativeSize="17.647058823529413" IsNewNode="True" />
+              <LayoutItem Id="ZipCode" ViewItem="ZipCode" Index="4" RelativeSize="23.529411764705884" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Party" Index="1" RelativeSize="17.5609756097561" Caption="Party" Removed="True">
+              <LayoutItem Id="Address1" RelativeSize="35.714285714285715" Index="0" Removed="True" />
+              <LayoutItem Id="Address2" RelativeSize="50" Index="0" Removed="True" />
+              <LayoutItem Id="DisplayName" RelativeSize="100" Index="0" Removed="True" />
+              <LayoutItem Id="Photo" RelativeSize="27.777777777777779" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="PhoneNumbers_Group" Direction="Vertical" RelativeSize="79.435957696827259">
+            <LayoutItem Id="PhoneNumbers" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="SalesOrder_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
